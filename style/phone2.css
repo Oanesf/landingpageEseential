@@ -1,0 +1,223 @@
+.phone-container2 {
+  position: fixed;
+  top: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 100px;
+  z-index: 1;
+  pointer-events: none;
+  perspective: 1200px;
+  box-sizing: border-box;
+}
+
+/* Estilos base del teléfono */
+.phone2 {
+  width: 280px;
+  height: 560px;
+  background: linear-gradient(145deg, rgb(215, 216, 213), rgb(171, 171, 168), rgb(118, 118, 116));
+  border-radius: 40px;
+  padding: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 10px 15px rgba(0, 0, 0, 0.1), inset 0 0 5px rgba(255, 255, 255, 0.1);
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease, box-shadow 1s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Parte interna del teléfono */
+.phone-inner2 {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Pantalla del teléfono */
+.phone-screen2 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: #ececec;
+
+}
+
+/* Notch del teléfono (la muesca superior) */
+.phone-notch2 {
+  margin-top: 10px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 25px;
+  background-color: #000;
+  border-radius: 15px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Añadir detalles al notch */
+.phone-notch2:before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(50, 150, 255, 0.6);
+  border-radius: 50%;
+  right: 15px;
+  box-shadow: 0 0 3px rgba(50, 150, 255, 0.5);
+}
+
+/* Indicador de inicio (la línea en la parte inferior) */
+.phone-home-indicator2 {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 3px;
+  z-index: 10;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Botones laterales para más realismo */
+.phone2:before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 60px;
+  background-color: rgba(99, 98, 96);
+  right: -1px;
+  top: 120px;
+  border-radius: 3px 0 0 3px;
+}
+
+.phone2:after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 30px;
+  background-color: rgba(99, 98, 96);
+  left: -1px;
+  top: 150px;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Estilos Responsivos - Centrado en móviles, derecha en computadoras */
+@media (max-width: 802px) {
+
+  .phone-container2 {
+    justify-content: center;
+    padding-right: 0;
+    display: none;
+  }
+
+  .phone2 {
+    width: 280px;
+    height: 560px;
+    transform: scale(0.95);
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 160px;
+  }
+
+  .phone-container2 {
+    justify-content: center;
+    /* Centrado en móviles */
+    bottom: 20px;
+    /* Ajuste de posición */
+  }
+
+  .phone2 {
+    width: 280px;
+    height: 560px;
+    transform: scale(0.9);
+  }
+
+  .phone-notch2 {
+    width: 120px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    padding-bottom: 140px;
+  }
+
+  .phone2 {
+    opacity: 0;
+    width: 280px;
+    height: 560px;
+    transform: scale(0.85);
+  }
+
+  .phone-notch2 {
+    width: 100px;
+    height: 22px;
+  }
+
+  .phone-home-indicator2 {
+    width: 80px;
+    height: 4px;
+  }
+}
+
+/* Animación sutil de "respiración" */
+@keyframes subtle-float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotateY(0deg);
+  }
+
+  50% {
+    transform: translateY(-5px) rotateY(2deg);
+  }
+}
+
+.phone-container:hover .phone {
+  animation: subtle-float 5s infinite ease-in-out;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25), 0 15px 20px rgba(0, 0, 0, 0.15), inset 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+/* Mejora para pantallas de alta densidad */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+  .phone2 {
+    background: linear-gradient(145deg, rgb(215, 216, 213), rgb(171, 171, 168), rgb(118, 118, 116));
+  }
+}
+
+/* Ajuste adicional para pantallas muy grandes */
+@media (min-width: 1400px) {
+  .phone-container2 {
+    padding-right: 100px;
+    /* Más espacio en pantallas muy grandes */
+  }
+
+  .phone2 {
+    transform: scale(1.05);
+    /* Ligeramente más grande en pantallas grandes */
+  }
+}
+
+/* Ajuste para pantallas ultraanchas */
+@media (min-width: 1800px) {
+  .phone-container2 {
+    padding-right: 150px;
+    /* Aún más espacio en pantallas ultraanchas */
+  }
+}
