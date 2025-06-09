@@ -34,5 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
   navbarToggle.addEventListener('click', () => {
       navbarToggle.classList.toggle('active');
   });
-});
 
+  // Cerrar el menú lateral al hacer clic en enlaces de navegación
+  const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+  sidebarLinks.forEach(link => {
+      link.addEventListener('click', () => {
+          navbarSidebar.classList.remove('active');
+          navbarToggle.classList.remove('active');
+      });
+  });
+});
